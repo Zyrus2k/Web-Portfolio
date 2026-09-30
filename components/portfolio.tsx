@@ -121,7 +121,7 @@ export default function Portfolio() {
             </div>
           </div>
           <div className="portrait-frame">
-            <Image className="portrait-photo" src="images/profile/zyrus-portrait.jpg" alt="Zyrus at a computer" fill sizes="(max-width: 900px) 84vw, 390px" onLoad={() => setPortraitLoaded(true)} onError={(event) => { event.currentTarget.style.display = "none"; }} />
+            <Image className="portrait-photo" src="images/profile/zyrus-portrait.jpg" alt="Zyrus at a computer" fill sizes="(max-width: 900px) 84vw, 390px" loading="eager" onLoad={() => setPortraitLoaded(true)} onError={(event) => { event.currentTarget.style.display = "none"; }} />
             {!portraitLoaded && <>
               <span className="portrait-mark">Z</span>
               <div className="portrait-note"><span>Portrait image</span><span>Add your photo</span></div>
