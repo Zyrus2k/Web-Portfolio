@@ -1,0 +1,1 @@
+Place the attached portrait photo in this folder as `zyrus-portrait.jpg`. The hero displays that file automatically and keeps a designed fallback visible until the image is present.

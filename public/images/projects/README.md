@@ -1,0 +1,1 @@
+Add actual project cover images and capstone screenshots to this folder. The case-study gallery uses clearly labeled empty slots until real screenshots are added.

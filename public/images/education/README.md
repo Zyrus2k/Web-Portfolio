@@ -1,0 +1,1 @@
+Place any education-related images you choose to use in this folder.
