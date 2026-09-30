@@ -2,8 +2,8 @@
 
 import { useState, type CSSProperties, type FormEvent } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react";
+import OfflineLink from "@/components/offline-link";
 import { filters, projects, skills, technologies } from "@/data/projects";
 
 const navItems = [
@@ -41,9 +41,9 @@ function Navigation() {
   return (
     <header className="nav-wrap">
       <nav className="nav-bar site-width" aria-label="Main navigation">
-        <Link className="brand" href="#home" onClick={() => setMenuOpen(false)}>Zyrus<span style={{ color: "var(--green)" }}>.</span></Link>
+        <a className="brand" href="#home" onClick={() => setMenuOpen(false)}>Zyrus<span style={{ color: "var(--green)" }}>.</span></a>
         <div className="nav-links">
-          {navItems.map(([label, id]) => <Link key={id} href={`#${id}`}>{label}</Link>)}
+          {navItems.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}
         </div>
         <div className="nav-actions">
           <ThemeToggle />
@@ -54,7 +54,7 @@ function Navigation() {
       </nav>
       {menuOpen && <div className="mobile-menu">
         <div className="site-width" style={{ display: "grid" }}>
-          {navItems.map(([label, id]) => <Link key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</Link>)}
+          {navItems.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>)}
           <button className="text-link" style={{ padding: "12px 0", border: 0, background: "transparent", justifySelf: "start" }} onClick={() => document.querySelector<HTMLButtonElement>(".icon-button")?.click()}>
             <Moon size={15} /> Toggle appearance
           </button>
@@ -76,7 +76,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
       <h3>{project.title}</h3>
       <p className="project-description">{project.description}</p>
       <div className="tag-list">{project.technologies.map((technology) => <span className="tag" key={technology}>{technology}</span>)}</div>
-      {project.href ? <Link className="text-link" href={project.href}>View Case Study <ArrowRight size={15} /></Link> : <span className="text-link" aria-label="Project link can be added">Project details <ArrowRight size={15} /></span>}
+      {project.href ? <OfflineLink className="text-link" href={project.href} offlineHref="case-study.html">View Case Study <ArrowRight size={15} /></OfflineLink> : <span className="text-link" aria-label="Project link can be added">Project details <ArrowRight size={15} /></span>}
     </div>
   </article>;
 }
@@ -116,12 +116,12 @@ export default function Portfolio() {
             <p className="hero-role">BSIT Student &amp; Aspiring Web Developer</p>
             <p className="hero-description">I’m an Information Technology student who enjoys building practical web applications, exploring new technologies, and turning ideas into working systems.</p>
             <div className="hero-buttons">
-              <Link className="button-primary" href="#work">View My Work <ArrowDownRight size={16} /></Link>
-              <Link className="button-outline" href="#contact">Let’s Connect <ArrowUpRight size={16} /></Link>
+              <a className="button-primary" href="#work">View My Work <ArrowDownRight size={16} /></a>
+              <a className="button-outline" href="#contact">Let’s Connect <ArrowUpRight size={16} /></a>
             </div>
           </div>
           <div className="portrait-frame">
-            <Image className="portrait-photo" src="/images/profile/zyrus-portrait.jpg" alt="Zyrus at a computer" fill sizes="(max-width: 900px) 84vw, 390px" onLoad={() => setPortraitLoaded(true)} onError={(event) => { event.currentTarget.style.display = "none"; }} />
+            <Image className="portrait-photo" src="images/profile/zyrus-portrait.jpg" alt="Zyrus at a computer" fill sizes="(max-width: 900px) 84vw, 390px" onLoad={() => setPortraitLoaded(true)} onError={(event) => { event.currentTarget.style.display = "none"; }} />
             {!portraitLoaded && <>
               <span className="portrait-mark">Z</span>
               <div className="portrait-note"><span>Portrait image</span><span>Add your photo</span></div>
@@ -173,6 +173,6 @@ export default function Portfolio() {
         <ContactForm />
       </div></section>
     </main>
-    <footer className="site-footer"><div className="site-width"><div className="footer-top"><div className="footer-identity"><strong>Zyrus</strong><span>BSIT Student &amp; Aspiring Web Developer</span></div><nav className="footer-nav" aria-label="Footer navigation">{navItems.slice(1).map(([label, id]) => <Link key={id} href={`#${id}`}>{label}</Link>)}</nav></div><div className="social-list footer-socials">{socialLinks.map(({ name, href }) => <a key={name} href={href} target="_blank" rel="noreferrer">{name} <ArrowUpRight size={13} /></a>)}</div><div className="footer-bottom"><span>© 2026 Zyrus. All rights reserved.</span><span>Made while learning.</span></div></div></footer>
+    <footer className="site-footer"><div className="site-width"><div className="footer-top"><div className="footer-identity"><strong>Zyrus</strong><span>BSIT Student &amp; Aspiring Web Developer</span></div><nav className="footer-nav" aria-label="Footer navigation">{navItems.slice(1).map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav></div><div className="social-list footer-socials">{socialLinks.map(({ name, href }) => <a key={name} href={href} target="_blank" rel="noreferrer">{name} <ArrowUpRight size={13} /></a>)}</div><div className="footer-bottom"><span>© 2026 Zyrus. All rights reserved.</span><span>Made while learning.</span></div></div></footer>
   </div>;
 }
