@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react";
 import OfflineLink from "@/components/offline-link";
 import { filters, projects, skills, technologies } from "@/data/projects";
+import { contactEmail, socialLinks } from "@/data/portfolio-profile";
 
 const navItems = [
   ["Home", "home"],
@@ -13,12 +14,6 @@ const navItems = [
   ["Education", "education"],
   ["Contact", "contact"],
 ] as const;
-
-const socialLinks = [
-  { name: "GitHub", href: "https://github.com/Zyrus2k" },
-  { name: "Facebook", href: "https://www.facebook.com/Zyrus.Miranda" },
-  { name: "Instagram", href: "https://www.instagram.com/mrnda.zyr_/" },
-];
 
 function ThemeToggle() {
   const [dark, setDark] = useState(false);
@@ -159,7 +154,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section className="skills-section"><div className="site-width">
+      <section className="skills-section" id="skills"><div className="site-width">
         <div className="skills-head"><div><span className="eyebrow">04 / Things I use</span><h2 className="serif">Tools &amp; skills</h2></div><p style={{ maxWidth: 320, color: "var(--muted)", lineHeight: 1.7 }}>A growing toolkit from coursework, experiments, and projects.</p></div>
         <div className="skills-grid">{skills.map((group) => <div className="skill-group" key={group.category}><h3>{group.category}</h3><p>{group.items.join(" · ")}</p></div>)}</div>
       </div></section>
@@ -170,7 +165,7 @@ export default function Portfolio() {
       </section>
 
       <section className="contact-section" id="contact"><div className="site-width contact-grid">
-        <div className="contact-heading"><span className="eyebrow">06 / Say hello</span><h2 className="serif">Let’s work<br />together</h2><p>I’m always open to learning opportunities, collaborations, academic projects, and interesting web development ideas.</p><a className="email-link" href="mailto:cataloniazyrus328@gmail.com">cataloniazyrus328@gmail.com <ArrowUpRight size={15} /></a><div className="social-list">{socialLinks.map(({ name, href }) => <a key={name} href={href} target="_blank" rel="noreferrer">{name} <ArrowUpRight size={13} /></a>)}</div></div>
+        <div className="contact-heading"><span className="eyebrow">06 / Say hello</span><h2 className="serif">Let’s work<br />together</h2><p>I’m always open to learning opportunities, collaborations, academic projects, and interesting web development ideas.</p><a className="email-link" href={`mailto:${contactEmail}`}>{contactEmail} <ArrowUpRight size={15} /></a><div className="social-list">{socialLinks.map(({ name, href }) => <a key={name} href={href} target="_blank" rel="noreferrer">{name} <ArrowUpRight size={13} /></a>)}</div></div>
         <ContactForm />
       </div></section>
     </main>

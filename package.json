@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:offline": "next build",
+    "build:offline": "node scripts/build-offline.mjs",
     "start": "next start",
     "lint": "eslint"
   },
