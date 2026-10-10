@@ -12,6 +12,8 @@ export type Project = {
   technologies: string[];
   mark: string;
   color: string;
+  image?: string;
+  imageAlt?: string;
   href?: string;
 };
 
@@ -25,6 +27,8 @@ export const projects: Project[] = [
     technologies: ["React", "Laravel", "PHP", "MySQL", "Tailwind CSS", "QR codes"],
     mark: "P+",
     color: "#314936",
+    image: "/images/projects/dashboard.jpg",
+    imageAlt: "Homepage of the Cabuyao City Veterinary Office pet registration system",
     href: "/case-study",
   },
   {

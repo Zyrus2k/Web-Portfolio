@@ -66,10 +66,11 @@ function Navigation() {
 
 function ProjectCard({ project, index }: { project: (typeof projects)[number]; index: number }) {
   return <article className="project-card">
-    <div className="project-visual" style={{ "--visual-bg": project.color } as CSSProperties} aria-label={`${project.title} image placeholder`}>
+    <div className={`project-visual${project.image ? " has-image" : ""}`} style={{ "--visual-bg": project.color } as CSSProperties}>
+      {project.image && <Image className="project-image" src={project.image} alt={project.imageAlt ?? `${project.title} screenshot`} fill sizes="(max-width: 760px) 100vw, 55vw" />}
       <div className="visual-kicker"><span>Academic work</span><span>0{index + 1} / 04</span></div>
-      <span className="visual-monogram" aria-hidden="true">{project.mark}</span>
-      <div className="visual-foot"><span>Replace with project image</span><span>2022 — 26</span></div>
+      {!project.image && <span className="visual-monogram" aria-hidden="true">{project.mark}</span>}
+      <div className="visual-foot"><span>{project.image ? "Project preview" : "Replace with project image"}</span><span>2022 — 26</span></div>
     </div>
     <div className="project-content">
       <p className="project-category">{project.type}</p>
