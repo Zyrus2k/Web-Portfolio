@@ -1,4 +1,4 @@
-export const contactEmail = "kiannmrnd01@gmail.com";
+export const contactEmail = "zyruscatalonia328@gmail.com";
 
 export const socialLinks = [
   { name: "GitHub", href: "https://github.com/Zyrus2k" },
