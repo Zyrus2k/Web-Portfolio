@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-:root { color-scheme: light; --paper: #f5f4ef; --paper-raised: #fbfaf7; --ink: #20251f; --muted: #74796f; --line: #d9dbd2; --green: #466b50; --green-deep: #263e2e; --footer: #202820; }
-html[data-theme="dark"] { color-scheme: dark; --paper: #171c18; --paper-raised: #202720; --ink: #edf0e8; --muted: #a2aa9d; --line: #39443a; --green: #9aba9b; --green-deep: #bed4bb; --footer: #101510; }
+:root { color-scheme: dark; --paper: #171c18; --paper-raised: #202720; --ink: #edf0e8; --muted: #a2aa9d; --line: #39443a; --green: #9aba9b; --green-deep: #bed4bb; --footer: #101510; }
+html[data-theme="light"] { color-scheme: light; --paper: #f5f4ef; --paper-raised: #fbfaf7; --ink: #20251f; --muted: #74796f; --line: #d9dbd2; --green: #466b50; --green-deep: #263e2e; --footer: #202820; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body), sans-serif; transition: background-color 220ms ease, color 220ms ease; }
@@ -89,8 +89,8 @@ a { color: inherit; text-decoration: none; }
 .timeline-date { color: var(--green); font-size: .78rem; font-weight: 700; }
 .timeline-item h3 { margin: 0 0 7px; font-family: var(--font-display), Georgia, serif; font-size: 1.47rem; font-weight: 500; }
 .timeline-item p { margin: 0; color: var(--muted); font-size: .83rem; line-height: 1.7; }
-.skills-section { padding: 80px 0 96px; background: #e9ebe3; color: #222922; }
-html[data-theme="dark"] .skills-section { background: #222b23; color: var(--ink); }
+.skills-section { padding: 80px 0 96px; background: #222b23; color: var(--ink); }
+html[data-theme="light"] .skills-section { background: #e9ebe3; color: #222922; }
 .skills-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 42px; }
 .skills-head h2 { margin: 12px 0 0; font-size: clamp(2.6rem, 5vw, 4.4rem); }
 .skills-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid #c7ccc2; }

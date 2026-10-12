@@ -16,7 +16,7 @@ const navItems = [
 ] as const;
 
 function ThemeToggle() {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
 
   function toggleTheme() {
     const next = !dark;
